@@ -1,0 +1,24 @@
+{
+  "fitbit": {
+    "appUUID": "304f7231-a24a-40ec-8c8e-df3198a2d6fd",
+    "appType": "app",
+    "appDisplayName": "LIFX",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#ffeb3b",
+    "requestedPermissions": [
+      "access_internet"
+    ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "LIFX"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}

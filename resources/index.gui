@@ -1,0 +1,83 @@
+<svg>
+  <!-- Define a reusable tile to display a train -->
+  <symbol id="tile-light" focusable="false" pointer-events="visible" system-events="all">
+    <rect id="light-background" height="100%" />
+
+    <text id="lightName" font-size="40" x="5" y="40" fill="white">Name</text>
+    <text id="brightness"  x="5" y="78" font-size="30" fill="white">0 %</text>
+    <text id="power" x="100%" text-anchor="end" y="78" font-size="30" fill="white">0 %</text>
+
+    <rect id="tile-divider-bottom" height="2" />
+    <rect id="light-tile-touchbox" pointer-events="all" x="0" y="0" width="100%"
+            height="100%-2" opacity="0" />
+  </symbol>
+
+  <textarea id="status" class="status">status message to be displayed here</textarea>
+
+  <use id="lightList" href="#tile-list" height="100%" width="100%">
+    <var id="reorder-enabled" value="0"/>
+    <var id="separator-height-bottom" value="2"/>
+
+    <use id="light-0" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-1" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-2" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-3" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-4" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-5" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-6" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-7" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-8" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-9" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-10" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-11" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-12" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-13" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-14" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-15" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-16" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-17" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-18" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+    <use id="light-19" href="#tile-list-item" class="light-item">
+      <use href="#tile-light" />
+    </use>
+
+  </use>
+</svg>
