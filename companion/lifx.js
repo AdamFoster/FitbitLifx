@@ -12,22 +12,24 @@ export function LifxAPI(apiKey) {
 LifxAPI.prototype.toggleBulbs = function(selector) {
   let self = this;
   return new Promise(function(resolve, reject) {
-    let url = `https://api.lifx.com/v1/lights/${selector}/toggle`;
+    let url = `https://api.lifx.com/v1/lights/${selector}/toggle`; //https://postman-echo.com/post?
     console.log(`URL: ${url}`);
     let myRequest = new Request(url, { 
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${self.apiKey}` 
+        "Authorization": `Bearer ${self.apiKey}`, 
+        "Accept": "*/*"
       },
-      body: {"duration": 1}
+      body: JSON.stringify({"duration": 1})
+      
     });
     
-    console.log("key: " + self.apiKey);
+    console.log("POST key: " + self.apiKey);
     //TODO: Add handling for missing api key
     
     fetch(myRequest).then(function(response) {
-      console.log(`Response(${response.status}): ${JSON.stringify(response.body)}`);
+      console.log(`Response(${response.status}): ${response.body}`);
       return response.json();
     }).then(function(json) {
       //console.log("Got JSON response from server:" + JSON.stringify(json));
@@ -67,7 +69,8 @@ LifxAPI.prototype.listBulbs = function() {
           "id": light["id"],
           "name": light["label"],
           "power": light["power"],
-          "brightness": light["brightness"]
+          "brightness": light["brightness"],
+          "connected": light["connected"]
         }
         lights.push(l);
       });

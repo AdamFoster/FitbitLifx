@@ -70,5 +70,8 @@ LifxUI.prototype.updateLights = function(data) {
     tile.getElementById("lightName").text = light.name;
     tile.getElementById("brightness").text = (100*light.brightness).toFixed(0) + " %";
     tile.getElementById("power").text = light.power;
+    if (!light.connected) {
+      //tile.getElementById("lightName").className = `${tile.getElementById("lightName").className} strikethrough`; //need to fix this... does strikethrough work - nope?
+    }
   }
 }
