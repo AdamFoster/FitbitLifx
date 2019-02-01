@@ -20,9 +20,12 @@ export function LifxUI(toggle) {
     let touch = element.getElementById("light-tile-touchbox");
     touch.onclick = (evt) => {
       console.log(`touched: ${index}`);
-      toggle(`id:${this.lightData[index].id}`);
-      let oldpower = this.tiles[index].getElementById("power").text;
-      this.tiles[index].getElementById("power").text = oldpower === "on" ? "off" : "on";
+
+      if (this.lightData[index].connected) { //only try to change power if light is connected
+        toggle(`id:${this.lightData[index].id}`);
+        let oldpower = this.lightData[index].power;
+        this.tiles[index].getElementById("power").text = oldpower === "on" ? "off" : "on";
+      }
     }
   });
 }
@@ -71,7 +74,9 @@ LifxUI.prototype.updateLights = function(data) {
     tile.getElementById("brightness").text = (100*light.brightness).toFixed(0) + " %";
     tile.getElementById("power").text = light.power;
     if (!light.connected) {
-      //tile.getElementById("lightName").className = `${tile.getElementById("lightName").className} strikethrough`; //need to fix this... does strikethrough work - nope?
+      tile.getElementById("tile-strikethrough").style.opacity = 1;
+      tile.getElementById("brightness").style.opacity = 0;
+      tile.getElementById("power").style.opacity = 0;
     }
   }
 }
