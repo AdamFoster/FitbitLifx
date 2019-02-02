@@ -44,7 +44,7 @@ LifxUI.prototype.updateUI = function(state, data) {
       this.statusText.text = "Loading lights ...";
     }
     else if (state === "disconnected") {
-      this.statusText.text = "Please check connection to phone and Fitbit App"
+      this.statusText.text = "Please wait for connection to phone..."
     }
     else if (state === "error") {
       this.statusText.text = "Something terrible happened.";
@@ -74,8 +74,9 @@ LifxUI.prototype.updateLights = function(data) {
     tile.getElementById("brightness").text = (100*light.brightness).toFixed(0) + " %";
     tile.getElementById("power").text = light.power;
     if (!light.connected) {
-      tile.getElementById("tile-strikethrough").style.opacity = 1;
-      tile.getElementById("brightness").style.opacity = 0;
+      tile.getElementById("lightName").style.fill = "grey";
+      tile.getElementById("brightness").style.fill = "grey";
+      tile.getElementById("brightness").text = "offline";
       tile.getElementById("power").style.opacity = 0;
     }
   }

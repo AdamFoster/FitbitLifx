@@ -10,7 +10,6 @@
     <rect id="tile-divider-bottom" height="2" />
     <rect id="light-tile-touchbox" pointer-events="all" x="0" y="0" width="100%"
             height="100%-2" opacity="0" />
-    <rect id="tile-strikethrough" x="3" y="25" width="100%-5" height="3" opacity="0" />
   </symbol>
 
   <textarea id="status" class="status">status message to be displayed here</textarea>
