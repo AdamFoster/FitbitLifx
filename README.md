@@ -12,6 +12,7 @@ Don't share this key with anyone else.
 ## Building
 ### Pre-requisites
  - node.js & npm
+   - On Windows I had to run npm ```install --global --production windows-build-tools to get the Fitbit tools to work```
  - Fitbit simulator or development device: https://dev.fitbit.com/getting-started/
 
 
