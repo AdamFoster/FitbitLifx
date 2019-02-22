@@ -23,8 +23,7 @@ export function LifxUI(toggle) {
 
       if (this.lightData[index].connected) { //only try to change power if light is connected
         toggle(`id:${this.lightData[index].id}`);
-        let oldpower = this.lightData[index].power;
-        this.tiles[index].getElementById("power").text = oldpower === "on" ? "off" : "on";
+        this.tiles[index].getElementById("power").text = "...";
       }
     }
   });
@@ -36,7 +35,21 @@ LifxUI.prototype.updateUI = function(state, data) {
     this.statusText.text = "";
 
     this.updateLights(data);
-  }
+  } 
+  else if (state === "toggle") { // when toggle response is received, update light
+    for (let i=0 ; i<this.lightData.length ; i++) {
+      if (this.lightData[i].id === data.lightId) {
+        if (data.status === "ok"){
+          let oldpower = this.lightData[i].power;
+          this.lightData[i].power = (oldpower === "on") ? "off" : "on";
+          this.tiles[i].getElementById("power").text = this.lightData[i].power;
+        }
+        else {
+          this.tiles[i].getElementById("power").text = "err";
+        }
+      }
+    }
+  } 
   else {
     this.lightList.style.display = "none";
 
