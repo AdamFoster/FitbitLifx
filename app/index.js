@@ -1,6 +1,6 @@
 import * as messaging from "messaging";
 import { LifxUI } from "./ui.js";
-import { ACTION_LIGHTS_LOADED, ACTION_TOGGLE, ACTION_TOGGLE_RESPONSE } from "../common/globals.js";
+import { ACTION_LIGHTS_LOADED, ACTION_TOGGLE, ACTION_TOGGLE_RESPONSE, ACTION_NO_API_KEY } from "../common/globals.js";
 
 let toggle = function(selector) {
   //console.log(`Selector: ${selector}`);
@@ -27,6 +27,9 @@ messaging.peerSocket.onmessage = function(evt) {
   }
   else if (evt.data.action === ACTION_TOGGLE_RESPONSE) {
     ui.updateUI("toggle", evt.data);
+  }
+  else if (evt.data.action === ACTION_NO_API_KEY) {
+    ui.updateUI("noapikey", evt.data);
   }
 }
 

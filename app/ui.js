@@ -62,6 +62,9 @@ LifxUI.prototype.updateUI = function(state, data) {
     else if (state === "error") {
       this.statusText.text = "Something terrible happened.";
     }
+    else if (state == "noapikey") {
+      this.statusText.text = "Please use phone companion app to enter LIFX Token";
+    }
     else {
       this.statusText.text = "How did we get here?";
     }

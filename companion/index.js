@@ -3,7 +3,7 @@ import * as messaging from "messaging";
 import { settingsStorage } from "settings";
 
 import { LifxAPI } from "./lifx.js"
-import { ACTION_LIGHTS_LOADED, ACTION_TOGGLE, ACTION_TOGGLE_RESPONSE } from "../common/globals.js";
+import { ACTION_LIGHTS_LOADED, ACTION_TOGGLE, ACTION_TOGGLE_RESPONSE, ACTION_NO_API_KEY } from "../common/globals.js";
 
 let lifxApi = null;
 
@@ -68,7 +68,17 @@ function initLifx() {
       }
       catch (e) {
         console.log(`Error parsing setting value: ${e}`);
+        messaging.peerSocket.send({
+          "action": ACTION_NO_API_KEY,
+          "message": "Error parsing API Key JSON"
+        });
       }
+    }
+    else {
+      messaging.peerSocket.send({
+        "action": ACTION_NO_API_KEY,
+        "message": "No API Key Set"
+      });
     }
 
     lifxApi = new LifxAPI(apikey);

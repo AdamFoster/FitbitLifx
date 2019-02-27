@@ -2,3 +2,4 @@ export const MAX_LIGHTS = 20;
 export const ACTION_LIGHTS_LOADED = "LIGHTS"
 export const ACTION_TOGGLE = "TOGGLE";
 export const ACTION_TOGGLE_RESPONSE = "TOGGLE_RESPONSE";
+export const ACTION_NO_API_KEY = "NO_API_KEY";
