@@ -3,11 +3,15 @@ import { LifxUI } from "./ui.js";
 import { ACTION_LIGHTS_LOADED, ACTION_TOGGLE, ACTION_TOGGLE_RESPONSE, ACTION_NO_API_KEY } from "../common/globals.js";
 
 let toggle = function(selector) {
-  //console.log(`Selector: ${selector}`);
-  messaging.peerSocket.send({
-    "action": ACTION_TOGGLE,
-    "selector": selector
-  });
+  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+    messaging.peerSocket.send({
+      "action": ACTION_TOGGLE,
+      "selector": selector
+    });
+  }
+  else {
+    ui.updateUI("disconnected");
+  }
 };
 
 let ui = new LifxUI(toggle);
