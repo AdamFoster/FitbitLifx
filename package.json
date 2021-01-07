@@ -9,10 +9,8 @@
       "access_internet"
     ],
     "buildTargets": [
-      "higgs",
-      "meson",
-      "gemini",
-      "mira"
+      "atlas",
+      "vulcan"
     ],
     "i18n": {
       "en": {
@@ -21,7 +19,7 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "~4.2.1",
+    "@fitbit/sdk": "~5.0.1",
     "@fitbit/sdk-cli": "^1.7.3"
   },
   "scripts": {
