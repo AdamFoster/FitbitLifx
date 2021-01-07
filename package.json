@@ -10,7 +10,9 @@
     ],
     "buildTargets": [
       "higgs",
-      "meson"
+      "meson",
+      "gemini",
+      "mira"
     ],
     "i18n": {
       "en": {
@@ -19,13 +21,15 @@
     }
   },
   "devDependencies": {
-    "@fitbit/sdk": "~3.0.0",
-    "@fitbit/sdk-cli": "^1.6.0"
+    "@fitbit/sdk": "~4.2.1",
+    "@fitbit/sdk-cli": "^1.7.3"
   },
   "scripts": {
-    "build": "fitbit-build"
+    "build": "fitbit-build",
+    "debug": "fitbit"
   },
   "dependencies": {
-    "io-ts": "^1.8.3"
+    "io-ts": "^1.8.3",
+    "keytar": "^7.3.0"
   }
 }
